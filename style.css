@@ -60,7 +60,7 @@ div{
     justify-content: space-around;
     margin: 20px;
 }
-div:hover{
+.itens div:hover{
     transform: scale(1.01);
 }
 
@@ -120,6 +120,8 @@ form {
     position: absolute;
     margin-left: 1030px;
     margin-top: 125px;
+    display: flex;
+    flex-direction: row;
 }
 input{
     background-color: #F5F5F5;
@@ -132,7 +134,7 @@ input{
 button{
     background-color: #6B54DE;
     width: 96px;
-    height: 47px;
+    height: 50px;
     color: #FFFFFF;
     font-family: 'Inter';
     font-style: normal;
