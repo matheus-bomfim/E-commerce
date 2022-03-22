@@ -1,7 +1,7 @@
 
 header{
 position: absolute;
-width: 1517px;
+width: 1516px;
 height: 70px;
 background-color: #F5F5F5;}
 
@@ -9,6 +9,7 @@ background-color: #F5F5F5;}
     width:170px;
     height:30px;
     margin-right: 700px;
+    cursor: pointer;
 }
 
 li{
@@ -118,7 +119,7 @@ a:hover{
 }
 form {
     position: absolute;
-    margin-left: 1030px;
+    margin-left: 1040px;
     margin-top: 125px;
     display: flex;
     flex-direction: row;
@@ -150,7 +151,7 @@ button:hover{
 
 aside{
     position: absolute;
-    margin-left: 1030px;
+    margin-left: 1040px;
     margin-top: 200px;
     background-color: #F5F5F5;
     display: flex;
