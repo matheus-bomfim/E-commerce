@@ -144,17 +144,6 @@ document.querySelector("button").addEventListener("click",(e)=>{
             document.querySelector("nav").appendChild(div);
 
     
-    
-    const divinfo = document.createElement("div");
-        divinfo.className = "info"
-        divinfo.style.display = "none"
-        divinfo.innerHTML = `<h3>Quantidade:<span>2</span></h3>
-        <h3>Total:<span>R$ 180,00</span></h3>`
-        document.querySelector("aside").appendChild(divinfo);
-    
-    
-    
-    
         let countadd = 0
         let countremove = 0
     document.addEventListener("click", (e) => {
@@ -178,6 +167,14 @@ document.querySelector("button").addEventListener("click",(e)=>{
         divinfo.style.display = "";
     }})
     
+    const divinfo = document.createElement("div");
+    divinfo.className = "info"
+    divinfo.style.display = "none"
+    divinfo.innerHTML = `<h3>Quantidade:<span>1</span></h3>
+    <h3>Total:<span>R$ 180,00</span></h3>`
+    document.querySelector("aside").appendChild(divinfo);
+    
+    
     
     document.addEventListener("click",(e) => {
         const nav = document.getElementsByTagName("nav");
@@ -186,7 +183,6 @@ document.querySelector("button").addEventListener("click",(e)=>{
         const item= event.parentElement;
         const cls = e.target.innerText;
         if (cls === "Remover do Carrinho"){item.remove();countremove += 1}
-        if (countadd === countremove){cartcls.style.display = ""};
-        
-    })
+        if (countadd === countremove){cartcls.style.display = "";divinfo.style.display = "none"};
+        })
 
