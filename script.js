@@ -59,6 +59,8 @@ let bancodedados = [
     }
 ];
 
+let bancoprecos = [105,75,35,105,57,75];
+
 const section = document.querySelector("section");
 
 for (let i = 0;i < bancodedados.length;i++){
@@ -144,10 +146,11 @@ document.querySelector("button").addEventListener("click",(e)=>{
             document.querySelector("nav").appendChild(div);
 
     
-        let countadd = 0
-        let countremove = 0
-    document.addEventListener("click", (e) => {
-        
+            let countadd = 0
+            let countremove = 0
+            let count = 0
+            let value = 0
+         document.addEventListener("click", (e) => {
         if (e.target.innerText == "Adicionar ao Carrinho"){
         countadd += 1
         const cartcls = document.querySelector(".carrinhovazio");
@@ -160,22 +163,40 @@ document.querySelector("button").addEventListener("click",(e)=>{
                 <div class="textcart">
                     <h2 class = "titlecart">${bancodedados[id].title}</h2>
                     <p class="valuecart">${bancodedados[id].value}</p>
-                    <a class = "remove">Remover do Carrinho</a>
+                    <a class = "remove" id = ${id}>Remover do Carrinho</a>
                     </div>`;
         document.querySelector("nav").appendChild(div);
         cartcls.style.display = "none";
         divinfo.style.display = "";
+        value += bancoprecos[id] 
+        const spanv = document.querySelectorAll("span")[1];spanv.innerText = `R$ ${value}`
+        
     }})
+    
+    document.addEventListener("click",function(e){
+        if (e.target.innerText === "Adicionar ao Carrinho"){count++;
+           const span = document.querySelector("span")
+           span.innerText = count
+        }
+        if (e.target.innerText === "Remover do Carrinho"){count--;
+            const span = document.querySelector("span"); 
+            span.innerText = count;
+            value -= bancoprecos[e.target.id];
+            const spanv = document.querySelectorAll("span")[1];spanv.innerText = `R$ ${value}`;
+            
+            }
+        })
     
     const divinfo = document.createElement("div");
     divinfo.className = "info"
     divinfo.style.display = "none"
-    divinfo.innerHTML = `<h3>Quantidade:<span>1</span></h3>
-    <h3>Total:<span>R$ 180,00</span></h3>`
+    divinfo.innerHTML = `<h3> Quantidade: <span></span> </h3>
+    <h3> Total: <span id=preco></span> </h3>`
     document.querySelector("aside").appendChild(divinfo);
     
-    
-    
+    const h3 = document.querySelector("h3");
+    const p = document.createElement("p")
+
     document.addEventListener("click",(e) => {
         const nav = document.getElementsByTagName("nav");
         const cartcls = document.querySelector(".carrinhovazio");
@@ -185,4 +206,3 @@ document.querySelector("button").addEventListener("click",(e)=>{
         if (cls === "Remover do Carrinho"){item.remove();countremove += 1}
         if (countadd === countremove){cartcls.style.display = "";divinfo.style.display = "none"};
         })
-
