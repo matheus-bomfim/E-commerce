@@ -184,6 +184,8 @@ aside{
 nav{
     width: 347px;
     height: auto;
+    max-height: 347px;
+    overflow: auto;
     display: flex;
     flex-direction: column;
 }
